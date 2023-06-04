@@ -5,7 +5,6 @@ export default function () {
   return (
     <main
       className="min-h-screen w-full bg-gray-100 text-gray-700"
-      x-data="layout"
     >
       <div className="flex min-h-screen flex-col">
         <Header />

@@ -9,7 +9,7 @@ import {
 } from "~/components/icons";
 
 export const Sidebar = () => (
-  <aside className="flex w-80 flex-col gap-4 border-r-2 border-gray-200 p-4">
+  <aside className="flex w-full md:w-80 flex-col gap-4 border-r-2 border-gray-200 p-4">
     <div className="flex flex-col gap-2">
       <h2 className="text-sm[14px]">Apply changes using commands</h2>
       <textarea
