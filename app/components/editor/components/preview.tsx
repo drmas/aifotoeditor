@@ -25,7 +25,7 @@ export const Preview = ({
               className="flex w-full cursor-pointer flex-col items-center justify-center 
           rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-white"
             >
-              <div className="flex flex-col items-center justify-center p-48">
+              <div className="flex flex-col items-center justify-center p-12 lg:p-48">
                 <svg
                   aria-hidden="true"
                   className="mb-3 h-10 w-10 text-gray-400"
