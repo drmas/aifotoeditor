@@ -1,20 +1,23 @@
-import Replicate from "replicate";
-
-const replicateClient = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN || "",
-});
-
 export const clean = async (image: string) => {
   const version =
     "c75db81db6cbd809d93cc3b7e7a088a351a3349c9fa02b6d393e35e0d51ba799";
   const input = {
     image,
   };
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const colorise = async (image: string) => {
@@ -24,11 +27,19 @@ export const colorise = async (image: string) => {
     input_image: image,
     model_name: "Artistic",
   };
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const deblur = async (image: string) => {
@@ -38,11 +49,19 @@ export const deblur = async (image: string) => {
     model: "Image Deblurring (GoPro)",
     image,
   };
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const lighten = async (image: string) => {
@@ -52,11 +71,19 @@ export const lighten = async (image: string) => {
     image,
   };
 
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const removebg = async (image: string) => {
@@ -67,11 +94,19 @@ export const removebg = async (image: string) => {
     image,
   };
 
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const instructions = async (image: string, prompt: string) => {
@@ -82,14 +117,28 @@ export const instructions = async (image: string, prompt: string) => {
     prompt,
   };
 
-  const res = await replicateClient.predictions.create({
-    version,
-    input,
+  const res = await fetch("https://api.replicate.com/v1/predictions", {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      version,
+      input,
+    }),
   });
-  return res;
+  const json = await res.json();
+  return json;
 };
 
 export const status = async (id: string) => {
-  const res = await replicateClient.predictions.get(id);
-  return res;
+  const res = await fetch("https://api.replicate.com/v1/predictions/" + id, {
+    headers: {
+      Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+  const json = await res.json();
+  return json;
 };

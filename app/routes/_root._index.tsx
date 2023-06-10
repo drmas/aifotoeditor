@@ -27,7 +27,7 @@ export const meta: V2_MetaFunction = () => {
     { property: "og:type", content: "website" },
     {
       property: "og:image",
-      content: "https://aifotoeditor.com/images/og-image.jpg",
+      content: "https://aifotoeditor.com/images/og-image.png",
     },
     { rel: "canonical", href: "https://aifotoeditor.com" },
   ];
