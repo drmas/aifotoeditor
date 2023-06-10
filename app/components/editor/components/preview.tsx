@@ -19,7 +19,7 @@ export const Preview = ({
             className=" min-h-full bg-white md:min-w-full lg:min-h-[600px] lg:min-w-[600px]"
           />
         ) : (
-          <div className="flex w-full items-center justify-center">
+          <div className="flex w-full items-center justify-center mt-5">
             <label
               htmlFor="dropzone-file"
               className="flex w-full cursor-pointer flex-col items-center justify-center 
