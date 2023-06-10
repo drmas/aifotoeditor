@@ -78,11 +78,11 @@ Examples:
           icon={RemoveBackgroundSVG}
           onClick={() => onAction("removebg")}
         />
-        <Button
+        {/* <Button
           title="Upscale"
           icon={UpscaleSVG}
           onClick={() => onAction("upscale")}
-        />
+        /> */}
       </div>
       <hr />
       <Button title="Download" icon={DownloadSVG} onClick={onDownload} />

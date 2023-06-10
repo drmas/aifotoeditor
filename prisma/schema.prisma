@@ -9,3 +9,26 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model StripeCheckout {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String   @unique
+  sessionId String   @unique
+  amount    Int
+  currency  String
+  status    String
+  credit    Int
+
+  @@index([sessionId, email])
+}
+
+model RedeemedCheckouts {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sessionId String   @unique
+
+  @@index([sessionId])
+}
